@@ -3,7 +3,6 @@ package se.lexicon.springmvcexercise.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,19 +18,23 @@ public class Home {
     public String index(){
         return "index";
     }
-    @GetMapping("/contactform")
-    public String contactForm() {
+
+    @GetMapping("/contactForm")
+    public String contactForm(Model model) {
+        String input = "";
+        model.addAttribute("input", input);
         return "contact";
     }
 
     @PostMapping("/contact")
-    public String contactInfo(@RequestParam String contactInfo){
+    public String contactInfo(@RequestParam(name = "contactInfo") String contactInfo){
+        System.out.println("contactInfo = " + contactInfo);
         stringList.add(contactInfo);
         return "contact";
     }
     @GetMapping("/contact")
     public String contactList(Model model) {
         model.addAttribute("stringList",stringList);
-                return "redirect: /home/";
+                return "contact";
     }
 }

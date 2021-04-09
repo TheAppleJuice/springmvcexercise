@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Contact Page</title>
@@ -18,18 +18,38 @@
 <nav th:insert="fragments/navbar :: navbar_fragment"></nav>
 
 <div class="container">
-    <form th:action="@{/contact}" method="post" th:object="${contactInfo}">
+    <form th:action="@{/contact}" method="post">
 
         <div class="form-group">
             <label>Text input</label>
-<input type="text" class="form-control" placeholder="Enter text here...">
+            <input type="text" name="contactInfo" class="form-control" placeholder="Enter text here...">
         </div>
-
-
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit" class="submit">Submit</button>
     </form>
 </div>
 <br>
+
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+    </table>
+      <tbody>
+            <tr th:each="p : ${stringList}">
+                <td th:text="${p}"></td>
+            </tr>
+      </tbody>
+
+    </table>
+
+</div>
+
+
+
 
 <footer class="py-5 bg-light">
     <p class="m-0 text-center text-black">
