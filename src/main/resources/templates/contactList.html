@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Page</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <style>
+        body {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+<nav th:insert="fragments/navbar :: navbar_fragment"></nav>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Formulär text här</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${stringList}">
+            <td>
+                <span th:text="${p}"></span>
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+<br>
+
+<footer class="py-5 bg-light">
+    <p class="m-0 text-center text-black">
+        Copyright 2021 &copy; MOS by Sebastian
+    </p>
+</footer>
+</body>
+</html>
