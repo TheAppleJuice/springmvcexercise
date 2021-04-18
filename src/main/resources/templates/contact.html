@@ -31,18 +31,22 @@
 
 
 <div>
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-        </tr>
-        </thead>
-    </table>
-      <tbody>
-            <tr th:each="p : ${stringList}">
-                <td th:text="${p}"></td>
-            </tr>
-      </tbody>
+
+    <thead>
+      <tr>
+          <th>Show content</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+    <tr th:each="p : ${stringList}">
+        <td>
+            <span th:text="${p.toString()}" ></span>
+        </td>
+
+    </tr>
+    </tbody>
 
     </table>
 
